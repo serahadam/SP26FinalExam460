@@ -1,7 +1,7 @@
 # Development Log – The Torchbearer
 
-**Student Name:** ___________________________
-**Student ID:** ___________________________
+**Student Name:** Serah Adam 
+**Student ID:** 12942808 
 
 > Instructions: Write at least four dated entries. Required entry types are marked below.
 > Two to five sentences per entry is sufficient. Write entries as you go, not all in one
@@ -15,7 +15,7 @@
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-_Your entry here._
+I plan to first look over and understand the material and understand what is required of this final. As well as how Djikstra's algorithm will be used for precomputing shortest paths between important locations. After that, I will design the search algorithm that determines the best order for collecting relics while minimizing total fuel cost. I am assuming the most difficult parts to be managing the search state correctly and implementing pruning without removing optimal solutions. Testing my work by starting with small example graphs and manually verifying the expected shortest paths. 
 
 ---
 
@@ -24,7 +24,7 @@ _Your entry here._
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
 
-_Your entry here._
+While adding the search logic, I have realized my algorithm was revisiting relics that had already been collected because I was not updating the visited set correctly duiring backtracking. Which caused duplicating paths and incorrect total cost calculations. I fixed the issue by making sure relics were marked as collected before recursive calls and unmarked immediately after returning. Once I fixed it, the search explored only valid paths and produced more consistent results. 
 
 ---
 

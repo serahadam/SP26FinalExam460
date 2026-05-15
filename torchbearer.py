@@ -2,8 +2,8 @@
 CS 460 – Algorithms: Final Programming Assignment
 The Torchbearer
 
-Student Name: ___________________________
-Student ID:   ___________________________
+Student Name: Serah Adam
+Student ID:   129420808
 
 INSTRUCTIONS
 ------------

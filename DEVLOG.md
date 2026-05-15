@@ -10,7 +10,7 @@
 
 ---
 
-## Entry 1 – [Date]: Initial Plan
+## Entry 1 – [May 8th, 2026]: Initial Plan
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
@@ -19,7 +19,7 @@ I plan to first look over and understand the material and understand what is req
 
 ---
 
-## Entry 2 – [Date]: [Short description]
+## Entry 2 – [May 10th, 2026]: [Short description]
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
@@ -28,33 +28,33 @@ While adding the search logic, I have realized my algorithm was revisiting relic
 
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 3 – [May 11th, 2026: [Short description]
 
-_Your entry here._
+Once the basic search worked, I focused on improving efficiency because the number of possible relic collection orders grew very quickly. I added a best so far cost tracker and a lower bound estimate to prune beanches that could not lead to a better answer. This significantly reduced teh number of states exploded and made the algorithm run faster on larger test case. I tested the cropped version against the orignal implementation to confirm both produced the same final answer.
 
 ---
 
-## Entry 4 – [Date]: Post-Implementation Reflection
+## Entry 4 – [May 12th, 2026]: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
 
-_Your entry here._
+After completing the project, I feel more comfortable combinibg shortest path algorithms with higher level strategies. If I had more time, I would improve the readability of my code by adding more helper functions and clearer comments. I would also like to create more automated test cases for edge conditions, such as disconnected graphs that very experience to reach. All in all, this project helped me beter understand how precomputation and pruning can make difficult optimization problems more manageable. 
 
 ---
 
-## Final Entry – [Date]: Time Estimate
+## Final Entry – [May 13th, 2026]: Time Estimate
 
 > Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
 | Part | Estimated Hours |
 |---|---|
-| Part 1: Problem Analysis | |
-| Part 2: Precomputation Design | |
-| Part 3: Algorithm Correctness | |
-| Part 4: Search Design | |
-| Part 5: State and Search Space | |
-| Part 6: Pruning | |
-| Part 7: Implementation | |
-| README and DEVLOG writing | |
-| **Total** | |
+| Part 1: Problem Analysis  : 1 | |
+| Part 2: Precomputation Design  : 1.5 | |
+| Part 3: Algorithm Correctness : 1 | |
+| Part 4: Search Design : 1.5 | |
+| Part 5: State and Search Space : 1  | |
+| Part 6: Pruning : 1 | |
+| Part 7: Implementation : 3  | |
+| README and DEVLOG writing : 1 | |
+| **Total**  : 11 hours| |

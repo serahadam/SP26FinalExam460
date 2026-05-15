@@ -128,9 +128,9 @@ The correct shortest path distance are necessary because the route planner depen
 
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
-| Current location | | | |
-| Relics already collected | | | |
-| Fuel cost so far | | | |
+| Current location | current_location |  String | The node where the Torchbearer currently is |
+| Relics already collected | visited_relics | Set | Tracks which relic chambers have been collected |
+| Fuel cost so far | fuel_cost | Integer | Total torch fuel used up to the current state |
 
 ### Part 5b: Data Structure for Visited Relics
 
@@ -138,19 +138,18 @@ The correct shortest path distance are necessary because the route planner depen
 
 | Property | Your answer |
 |---|---|
-| Data structure chosen | |
-| Operation: check if relic already collected | Time complexity: |
-| Operation: mark a relic as collected | Time complexity: |
-| Operation: unmark a relic (backtrack) | Time complexity: |
-| Why this structure fits | |
+| Data structure chosen | Set |
+| Operation: check if relic already collected | Time complexity: O ( 1 ) |
+| Operation: mark a relic as collected | Time complexity: O ( 1 ) |
+| Operation: unmark a relic (backtrack) | Time complexity: O ( 1 ) |
+| Why this structure fits | Fast membership checking and efficient updates during recursive search |
 
 ### Part 5c: Worst-Case Search Space
 
 > Two bullets.
 
 - **Worst-case number of orders considered:** _Your answer (in terms of k)._
-- **Why:** _One-line justification._
-
+- **Why** : Every possible permutation of the k relic chambers may need to be evaluated. 
 ---
 
 ## Part 6: Pruning
@@ -159,23 +158,24 @@ The correct shortest path distance are necessary because the route planner depen
 
 > Three bullets.
 
-- **What is tracked:** _Your answer here._
-- **When it is used:** _Your answer here._
-- **What it allows the algorithm to skip:** _Your answer here._
+- **What is tracked:** The minimum total fuel cost found for any complete valid route.
+- **When it is used:** Before exploring a branch, the current partial cost is compared against the best known solution.
+- **What it allows the algorithm to skip:** Any branch whose cost already exceeds the best so far value can be abandoned immediately. 
 
 ### Part 6b: Lower Bound Estimation
 
 > Three bullets.
 
-- **What information is available at the current state:** _Your answer here._
-- **What the lower bound accounts for:** _Your answer here._
-- **Why it never overestimates:** _Your answer here._
+- **What information is available at the current state:** Current location, collected relics, remaining relics, and precomputed shortest path distances.
+- **What the lower bound accounts for:** Minimum possible future fuel required to visit remaining relics and reach the exit.
+- **Why it never overestimates:** It uses shortest path distances, which are guaranteed to be less than or equal to actual route costs. 
 
 ### Part 6c: Pruning Correctness
 
 > One to two bullets. Explain why pruning is safe.
 
-- _Your answer here._
+- Pruning is safe because any branch whose lower bound exceeds the best so far cost cannot possibly improve the optimal solution.
+- Since only provably suboptimal branches are removed, the true optimal route is never discarded. 
 
 ---
 

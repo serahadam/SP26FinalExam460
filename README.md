@@ -17,13 +17,13 @@
 > per question. Each bullet should be 1-2 sentences max.
 
 - **Why a single shortest-path run from S is not enough:**
-  _Your answer here._
+  Shortest path run from S can determine the cheapest path from the entrance to every location, but it can not decide the best order to collect all relics and stil minimize the total full cost to the exit. 
 
 - **What decision remains after all inter-location costs are known:**
-  _Your answer here._
+  After all the shortest path distance are known, the remaining decision is determining the optimal sequence in which to visit the relic chambers before reaching T. 
 
 - **Why this requires a search over orders (one sentence):**
-  _Your answer here._
+  The problem requires searching over possible orders of relic collection because different visitation sequences can produce different total fuel costs. 
 
 ---
 
@@ -35,8 +35,8 @@
 
 | Source Node Type | Why it is a source |
 |---|---|
-| _node type_ | _one-line reason_ |
-| _node type_ | _one-line reason_ |
+| Entrance Node (S)  | Needed the calculate minimum fuel costs from the starting point to each relic chamber |
+| Each Relic Chamber  | Needed to compute travel costs between relics and from relics to the exit|
 
 ### Part 2b: Distance Storage
 
@@ -44,20 +44,20 @@
 
 | Property | Your answer |
 |---|---|
-| Data structure name | |
-| What the keys represent | |
-| What the values represent | |
-| Lookup time complexity | |
-| Why O(1) lookup is possible | |
+| Data structure name | Nested dictionary ( distance [ source ][target] )|
+| What the keys represent | Source and destination nodes |
+| What the values represent | Shortest path fuel cost between the nodes |
+| Lookup time complexity |  O( 1 ) |
+| Why O(1) lookup is possible | Dictionary hashing allows direct key based access |
 
 ### Part 2c: Precomputation Complexity
 
 > State the total complexity and show the arithmetic. Two to three lines max.
 
-- **Number of Dijkstra runs:** _your answer_
-- **Cost per run:** _your answer_
-- **Total complexity:** _your answer_
-- **Justification (one line):** _your answer_
+- **Number of Dijkstra runs:** k + 1 
+- **Cost per run:** O(m log n )
+- **Total complexity:** O (( k + 1 ) * m log n ) 
+- **Justification (one line):** Dijkstra is run once for every source node taht may begin a routing segment. 
 
 ---
 
@@ -72,29 +72,29 @@
 > Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
-  _Your answer here._
+Recorded distance is guaranteed to be the true shortest path from the source because no cheaper route can be found later.
 
 - **For nodes not yet finalized (not in S):**
-  _Your answer here._
+ Their current distance represents the best path discovered so dar using only finalized nodes as intermediate steps. 
 
 ### Part 3b: Why Each Phase Holds
 
 > One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
-  _Your answer here._
+  Before the first iteration, the source node has distance 0 and all other nodes are set to infinity, so the invariant holds trivially. 
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _Your answer here._
+  The node with the smallest tentative distance cna be safely finalized because all edge weights are nonnegative, meaning no future path can produce a lower cost. 
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
-  _Your answer here._
+  When the algorithm finishes, all reachable nodes have been finalized and their recorded distance are the true shortest path values. 
 
 ### Part 3c: Why This Matters for the Route Planner
 
 > One sentence connecting correct distances to correct routing decisions.
 
-_Your answer here._
+The correct shortest path distance are necessary because the route planner depends on them to compare relic collection orders and choose the minimum - fuel route.
 
 ---
 
@@ -105,17 +105,17 @@ _Your answer here._
 > State the failure mode. Then give a concrete counter-example using specific node names
 > or costs (you may use the illustration example from the spec). Three to five bullets.
 
-- **The failure mode:** _Your answer here._
-- **Counter-example setup:** _Your answer here._
-- **What greedy picks:** _Your answer here._
-- **What optimal picks:** _Your answer here._
-- **Why greedy loses:** _Your answer here._
+- **The failure mode:** : Choosing the nearest next relic can lead to a locally optimal decision that increases total fuel cost later. 
+- **Counter-example setup:** : Assuming S - B = 1 , S - C = 2 , B - D = 1 , D - C = 1, and the other routes are more pricey. 
+- **What greedy picks:** : A greedy strategy chooses B first because it is closest to S. 
+- **What optimal picks:** : THe optimal solution may choose C frst depending on later transtion costs. 
+- **Why greedy loses:** : Minimizing immediate cost does not account for how current choices affect future route options. 
 
 ### What the Algorithm Must Explore
 
 > One bullet. Must use the word "order."
 
-- _Your answer here._
+- The algorithm must explore multiple possible orders of relic collection to guarantee finding the globally optimal route. 
 
 ---
 

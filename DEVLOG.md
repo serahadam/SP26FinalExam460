@@ -49,12 +49,12 @@ After completing the project, I feel more comfortable combinibg shortest path al
 
 | Part | Estimated Hours |
 |---|---|
-| Part 1: Problem Analysis  : 1 | |
-| Part 2: Precomputation Design  : 1.5 | |
-| Part 3: Algorithm Correctness : 1 | |
-| Part 4: Search Design : 1.5 | |
-| Part 5: State and Search Space : 1  | |
-| Part 6: Pruning : 1 | |
-| Part 7: Implementation : 3  | |
-| README and DEVLOG writing : 1 | |
-| **Total**  : 11 hours| |
+| Part 1: Problem Analysis | | 1
+| Part 2: Precomputation Design  | | 1.5 
+| Part 3: Algorithm Correctness| | 1
+| Part 4: Search Design | | 1.5 
+| Part 5: State and Search Space  | | 1
+| Part 6: Pruning  | | 1
+| Part 7: Implementation  | | 3
+| README and DEVLOG writing | | 1
+| **Total**  | |  11 hours
